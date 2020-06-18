@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     public Text gameover;
     public Text Restart;
+    public Text win;
 
     public Text score;
 
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         gameover.enabled = false;
         Restart.enabled = false;
+        win.enabled = false;
     }
 
     void Update()
@@ -41,6 +43,14 @@ public class Player : MonoBehaviour
             {
                 SceneManager.LoadScene(0);
             }
+        }
+
+        if(Score == 10)
+        {
+            win.enabled = true;
+            Restart.enabled = true;
+
+            Time.timeScale = 0;
         }
 
 
